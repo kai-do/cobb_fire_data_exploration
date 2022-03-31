@@ -15,7 +15,16 @@ if (!exists("query_df")) {
 }
 ### set data size ###
 
-write.csv(query_df,"narrative_data.csv", row.names = TRUE)
+end1 <- (nrow(query_df)/2)
+start2 <- end1+1
+end2 <- nrow(query_df)
+
+narrative_data_1 <- query_df[1:end1, ]
+narrative_data_2 <- query_df[start2:end2, ]
+
+write.csv(narrative_data_1,"narrative_data_1.csv", row.names = TRUE)
+write.csv(narrative_data_2,"narrative_data_2.csv", row.names = TRUE)
+
 
 size <- 10000
 
